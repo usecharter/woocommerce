@@ -14,10 +14,8 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
 
-// Function to display Charter.
-function charter_function(): void{
-    echo "<p>Hello, World!</p>";
+function enqueue_script(): void {
+    wp_enqueue_script('charter-pixel', 'https://usecharter.io/pixel.js');
 }
 
-// Hook the function to an action or shortcode.
-add_action('wp_footer', 'charter_function');
+add_action('wp_enqueue_scripts', 'enqueue_script');
