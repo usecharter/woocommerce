@@ -1,14 +1,20 @@
 <?php
 
 function charter_set_basket_uuid_handler(): void {
-	if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+	if (isset($_SERVER) && $_SERVER['REQUEST_METHOD'] !== 'POST') {
 		wp_send_json_error('Invalid request method', 405);
 	}
-	if (!isset($_POST['secure']) || !wp_verify_nonce($_POST['secure'], 'secure')) {
-		wp_send_json_error('Bad request', 400);
-	}
+    if (!isset($_POST['secure'])) {
+        wp_send_json_error('Bad request', 400);
+        exit;
+    }
+    $nonce = filter_var(wp_unslash($_POST['secure']), FILTER_SANITIZE_SPECIAL_CHARS);
 
-	$basket_uuid = $_POST['uuid'];
+    if (!wp_verify_nonce($nonce, 'secure')) {
+        wp_send_json_error('Bad request', 400);
+    }
+
+    $basket_uuid = filter_var(wp_unslash($_POST['uuid']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
 	try {
 		WC()->session->set('_uuid', $basket_uuid);
