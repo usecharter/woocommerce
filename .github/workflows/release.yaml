@@ -13,9 +13,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Zip the src Folder
+      - name: Zip the Contents of src Folder
         run: |
-          zip -r charter.zip src
+          cd src
+          zip -r ../charter.zip ./*
 
       - name: Delete Existing Tag (if exists)
         run: |
