@@ -10,7 +10,7 @@ function charter_start_session(): void {
 	}
 
 	$wc_session_uuid = WC()->session->get('_uuid');
-	$php_session_uuid = $_SESSION['_uuid'];
+    $php_session_uuid = isset($_SESSION['_uuid']) ? filter_var(wp_unslash($_SESSION['_uuid']), FILTER_SANITIZE_FULL_SPECIAL_CHARS) : null;
 
 	if (($wc_session_uuid && $php_session_uuid && $wc_session_uuid !== $php_session_uuid) || (!$wc_session_uuid && $php_session_uuid)) {
 		WC()->session->set('_uuid', $php_session_uuid);

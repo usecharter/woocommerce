@@ -14,13 +14,14 @@ function charter_record_conversion($order_id): void {
 
 		$email_hash = md5($order->get_billing_email());
 		$customer_ip = $order->get_customer_ip_address();
-		$user_agent = $_SERVER['HTTP_USER_AGENT'] ?? null;
+        $user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? filter_var(wp_unslash($_SERVER['HTTP_USER_AGENT']), FILTER_SANITIZE_SPECIAL_CHARS) : null;
 
-		$client_uuid = null;
+
+        $client_uuid = null;
 		if (!empty($_COOKIE['client'])) {
-			$client_uuid = $_COOKIE['client'];
+            $client_uuid = filter_var(wp_unslash($_COOKIE['client']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 		} elseif (!empty($_SESSION['_uuid'])) {
-			$client_uuid = $_SESSION['_uuid'];
+            $client_uuid = filter_var(wp_unslash($_SESSION['_uuid']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 		} elseif (WC()->session && !empty(WC()->session->get('_uuid'))) {
 			$client_uuid = WC()->session->get('_uuid');
 		}

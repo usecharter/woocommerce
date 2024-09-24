@@ -16,7 +16,7 @@ function charter_get_basket_uuid_handler(): void {
 	}
 
 	$wc_session_uuid = WC()->session->get('_uuid');
-	$php_session_uuid = isset($_SESSION['_uuid']) ? filter_var(wp_unslash($_SESSION['_uuid']), FILTER_SANITIZE_SPECIAL_CHARS) : null;
+	$php_session_uuid = isset($_SESSION['_uuid']) ? filter_var(wp_unslash($_SESSION['_uuid']), FILTER_SANITIZE_FULL_SPECIAL_CHARS) : null;
 
 	$basket_uuid = $wc_session_uuid ?? $php_session_uuid ?? null;
 
