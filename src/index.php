@@ -1,7 +1,6 @@
 <?php
 /*
  Plugin Name: Charter
- Plugin URI: https://usecharter.io
  Description: AI-powered ad budgeting
  Version: 1.0
  Author: Charter
