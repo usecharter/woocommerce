@@ -16,7 +16,7 @@ require_once plugin_dir_path( __FILE__ ) . 'admin/menu.php';
 require_once plugin_dir_path( __FILE__ ) . 'admin/register-api-token-setting.php';
 require_once plugin_dir_path( __FILE__ ) . 'admin/page.php';
 
-// Pixel / click tracking
+// Pixel / ad click tracking
 require_once plugin_dir_path( __FILE__ ) . 'pixel/sync-session-uuids.php';
 require_once plugin_dir_path( __FILE__ ) . 'pixel/add-script.php';
 require_once plugin_dir_path( __FILE__ ) . 'pixel/endpoints/get-basket-uuid.php';
