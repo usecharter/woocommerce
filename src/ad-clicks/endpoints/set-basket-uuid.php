@@ -12,14 +12,10 @@ function charter_set_basket_uuid_handler(): void {
 
 	try {
 		WC()->session->set('_uuid', $basket_uuid);
-	} catch (Exception $e) {
-		// Fail silently
-	}
+	} catch (Exception $e) {}
 	try {
 		$_SESSION['_uuid'] = $basket_uuid;
-	} catch (Exception $e) {
-		// Fail silently
-	}
+	} catch (Exception $e) {}
 
 	wp_send_json_success([]);
 }
