@@ -1,10 +1,10 @@
 <?php
 
 function charter_set_basket_uuid_handler(): void {
-	if (isset($_SERVER) && $_SERVER['REQUEST_METHOD'] !== 'POST') {
+	if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] !== 'POST') {
 		wp_send_json_error('Invalid request method', 405);
 	}
-    if (!isset($_POST['secure'])) {
+    if (!isset($_POST['secure']) || !isset($_POST['uuid'])) {
         wp_send_json_error('Bad request', 400);
         exit;
     }

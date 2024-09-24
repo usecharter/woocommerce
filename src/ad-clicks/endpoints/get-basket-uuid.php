@@ -1,7 +1,7 @@
 <?php
 
 function charter_get_basket_uuid_handler(): void {
-	if (isset($_SERVER) && $_SERVER['REQUEST_METHOD'] !== 'GET') {
+	if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] !== 'GET') {
 		wp_send_json_error('Invalid request method', 405);
         exit;
 	}
