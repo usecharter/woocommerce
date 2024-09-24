@@ -1,12 +1,12 @@
 <?php
 /*
  Plugin Name: Charter
- Plugin URI: https://usecharter.io/
+ Plugin URI: https://usecharter.io
  Description: AI-powered ad budgeting
  Version: 1.0
  Author: Charter
- Author URI: https://usecharter.io/
- License: proprietary
+ Author URI: https://usecharter.io
+ License: GPLv2 or later
 */
 
 if (!defined('ABSPATH')) { exit; }
