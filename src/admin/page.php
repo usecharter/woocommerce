@@ -1,7 +1,6 @@
 <?php
 
-function charter_admin_page(): void {
-	?>
+function charter_admin_page(): void { ?>
 	<div class="wrap">
 		<h1>Charter</h1>
 		<form method="post" action="options.php" style="width: 100%; max-width: 700px;">
@@ -24,5 +23,4 @@ function charter_admin_page(): void {
 			<?php submit_button(); ?>
 		</form>
 	</div>
-	<?php
-}
+<?php }
