@@ -32,7 +32,7 @@ function charter_record_conversion($order_id): void {
 			'user_agent' => $user_agent,
 			'client' => $client_uuid
 		];
-		wp_remote_post('http://localhost:6333/conversion', [
+		wp_remote_post('https://api.usecharter.io/conversion', [
 			'method'    => 'POST',
 			'body'      => wp_json_encode($data),
 			'headers'   => [
