@@ -2,7 +2,7 @@
 /*
  Plugin Name: Charter
  Description: AI-powered ad budgeting
- Version: 1.0
+ Version: 1.0.0
  Author: Charter
  Author URI: https://usecharter.io
  License: GPLv2 or later
