@@ -48,12 +48,3 @@ jobs:
           asset_path: ./charter.zip
           asset_name: charter.zip
           asset_content_type: application/zip
-
-  deploy:
-    name: Trigger Deployment
-    runs-on: ubuntu-latest
-    needs: [release]
-    steps:
-      - name: Trigger api 1
-        run: wget https://api.render.com/deploy/srv-crqt6g8gph6c73a6o960?key=${{ secrets.RENDER_DEPLOYMENT_TOKEN }}
-        shell: bash
